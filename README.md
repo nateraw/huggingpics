@@ -10,14 +10,14 @@ Click on the link below to try it out:
 
 ## How does it work?
 
-1. Define your search terms
+### 1. You define your search terms
 
 ![pick search terms](images/pick_search_terms.png)
 
-2. We download ~150 images for each
+### 2. We download ~150 images for each
 
 ![image search results](images/image_search_results.png)
 
-3. You push your model to HuggingFace's Hub to share your results with the world
+### 3. You push your model to HuggingFace's Hub to share your results with the world
 
 ![push to hub](images/push_to_hub.png)
