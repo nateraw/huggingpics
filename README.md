@@ -25,7 +25,7 @@ Click on the link below to try it out:
 
 ## Examples
 
-💡 If you need some inspiration, take a look at the examples below. You can see a full list of model repos created using this tool by [clicking here](https://huggingface.co/models?filter=huggingpics)
+💡 If you need some inspiration, take a look at the examples below.
 
 
 |            | [nateraw/rare-puppers](https://huggingface.co/nateraw/rare-puppers) | [nateraw/pasta-pizza-ravioli](https://huggingface.co/nateraw/pasta-pizza-ravioli) | [nateraw/baseball-stadium-foods](https://huggingface.co/nateraw/baseball-stadium-foods) | [nateraw/denver-nyc-paris](https://huggingface.co/nateraw/denver-nyc-paris) |
@@ -35,3 +35,5 @@ Click on the link below to try it out:
 | **term_3** | corgi                                                               | ravioli                                                                           | hot dog                                                                                 | paris                                                                       |
 | **term_4** |                                                                     |                                                                                   | nachos                                                                                  |                                                                             |
 | **term_5** |                                                                     |                                                                                   | popcorn                                                                                 |                                                                             |
+
+You can see a full list of model repos created using this tool by [clicking here](https://huggingface.co/models?filter=huggingpics)
