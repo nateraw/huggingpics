@@ -10,7 +10,7 @@ Click on the link below to try it out:
 
 ## How does it work?
 
-### 1. You define your search terms, we download ~150 images for each
+### 1. You define your search terms
 
 ![pick search terms](images/pick_search_terms.png)
 
