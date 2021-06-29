@@ -10,11 +10,11 @@ Click on the link below to try it out:
 
 ## How does it work?
 
-### 1. You define your search terms
+### 1. You define your search terms, we download ~150 images for each
 
 ![pick search terms](images/pick_search_terms.png)
 
-### 2. We download ~150 images for each
+### 2. We download ~150 images for each and use them to fine-tune a ViT
 
 ![image search results](images/image_search_results.png)
 
@@ -25,7 +25,7 @@ Click on the link below to try it out:
 
 ## Examples
 
-💡 If you need some inspiration, take a look at the examples below.
+💡 If you need some inspiration, take a look at the examples below:
 
 
 |            | [nateraw/rare-puppers](https://huggingface.co/nateraw/rare-puppers) | [nateraw/pasta-pizza-ravioli](https://huggingface.co/nateraw/pasta-pizza-ravioli) | [nateraw/baseball-stadium-foods](https://huggingface.co/nateraw/baseball-stadium-foods) | [nateraw/denver-nyc-paris](https://huggingface.co/nateraw/denver-nyc-paris) |
