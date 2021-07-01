@@ -23,6 +23,11 @@ Click on the link below to try it out:
 ![push to hub](images/push_to_hub.png)
 
 
+### Your auto-generated model repo will look something like this. Pretty cool, eh? 😎
+
+![push to hub](images/rare_puppers_repo.png)
+
+
 ## Examples
 
 💡 If you need some inspiration, take a look at the examples below:
