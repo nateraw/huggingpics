@@ -93,10 +93,18 @@ class HuggingPicsData(pl.LightningDataModule):
 
         feature_extractor = ViTFeatureExtractor.from_pretrained(self.hparams.model_name_or_path)
         normalize = Normalize(mean=feature_extractor.image_mean, std=feature_extractor.image_std)
+        # self.train_transform = Compose(
+        #     [
+        #         RandomResizedCrop(feature_extractor.size),
+        #         RandomHorizontalFlip(),
+        #         ToTensor(),
+        #         normalize,
+        #     ]
+        # )
         self.train_transform = Compose(
             [
-                RandomResizedCrop(feature_extractor.size),
-                RandomHorizontalFlip(),
+                Resize(feature_extractor.size),
+                CenterCrop(feature_extractor.size),
                 ToTensor(),
                 normalize,
             ]
