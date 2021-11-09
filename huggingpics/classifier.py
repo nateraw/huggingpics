@@ -2,8 +2,8 @@ import pytorch_lightning as pl
 import torch
 from torchmetrics import Accuracy
 
-class Classifier(pl.LightningModule):
 
+class Classifier(pl.LightningModule):
     def __init__(self, model, lr: float = 2e-5, **kwargs):
         super().__init__()
         self.save_hyperparameters('lr', *list(kwargs))

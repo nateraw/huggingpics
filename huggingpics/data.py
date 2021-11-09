@@ -1,23 +1,26 @@
+import logging
 import math
 import shutil
-import requests
-from pathlib import Path
 from io import BytesIO
-from PIL import Image, UnidentifiedImageError
-import logging
+from pathlib import Path
 
-from torchvision.datasets import ImageFolder
-import torch
 import pytorch_lightning as pl
-from torchvision.transforms import RandomResizedCrop, RandomHorizontalFlip, ToTensor, CenterCrop, Resize, Compose, Normalize
+import requests
+import torch
+from PIL import Image, UnidentifiedImageError
+from torchvision.datasets import ImageFolder
+from torchvision.transforms import (CenterCrop, Compose, Normalize,
+                                    RandomHorizontalFlip, RandomResizedCrop,
+                                    Resize, ToTensor)
 from transformers import ViTFeatureExtractor
 
 logger = logging.getLogger(__name__)
 
 SEARCH_URL = "https://huggingface.co/api/experimental/images/search"
 
+
 def get_image_urls_by_term(search_term: str, count=150):
-    params  = {"q": search_term, "license": "public", "imageType": "photo", "count": count}
+    params = {"q": search_term, "license": "public", "imageType": "photo", "count": count}
     response = requests.get(SEARCH_URL, params=params)
     response.raise_for_status()
     response_data = response.json()
@@ -35,7 +38,7 @@ def gen_images_from_urls(urls):
             img = Image.open(BytesIO(response.content))
             yield img
         except UnidentifiedImageError:
-            num_skipped +=1
+            num_skipped += 1
 
     print(f"Retrieved {len(urls) - num_skipped} images. Skipped {num_skipped}.")
 
@@ -63,13 +66,22 @@ def make_huggingpics_imagefolder(data_dir, search_terms, count=150, overwrite=Fa
         urls = get_image_urls_by_term(search_term, count)
         logger.info(f"Saving images of {search_term} to {str(search_term_dir)}...")
         urls_to_image_folder(urls, search_term_dir)
-    
+
     return ImageFolder(str(data_dir), transform=transform)
 
 
 class HuggingPicsData(pl.LightningDataModule):
-
-    def __init__(self, data_dir, search_terms, model_name_or_path='google/vit-base-patch16-224-in21k', count=150, val_split_pct=0.15, batch_size=16, num_workers=0, pin_memory=True):
+    def __init__(
+        self,
+        data_dir,
+        search_terms,
+        model_name_or_path='google/vit-base-patch16-224-in21k',
+        count=150,
+        val_split_pct=0.15,
+        batch_size=16,
+        num_workers=0,
+        pin_memory=True,
+    ):
         super().__init__()
         self.save_hyperparameters()
         ds = make_huggingpics_imagefolder(self.hparams.data_dir, self.hparams.search_terms, self.hparams.count)
@@ -103,7 +115,6 @@ class HuggingPicsData(pl.LightningDataModule):
         self.train_ds = SubsetWithTransform(ds, indices[:-n_val], transform=self.train_transform)
         self.val_ds = SubsetWithTransform(ds, indices[-n_val:], transform=self.val_transform)
 
-
     def train_dataloader(self):
         return torch.utils.data.DataLoader(
             self.train_ds,
@@ -111,7 +122,7 @@ class HuggingPicsData(pl.LightningDataModule):
             num_workers=self.hparams.num_workers,
             pin_memory=self.hparams.pin_memory,
             shuffle=True,
-            collate_fn=self.collate_fn
+            collate_fn=self.collate_fn,
         )
 
     def val_dataloader(self):
@@ -121,7 +132,7 @@ class HuggingPicsData(pl.LightningDataModule):
             num_workers=self.hparams.num_workers,
             pin_memory=self.hparams.pin_memory,
             shuffle=False,
-            collate_fn=self.collate_fn
+            collate_fn=self.collate_fn,
         )
 
     def collate_fn(self, batch):
