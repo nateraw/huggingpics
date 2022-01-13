@@ -4,7 +4,7 @@ Fine-tune Vision Transformers for **anything** using images found on the web.
 
 Check out the video below for a walkthrough of this project! ⤵️
 
-[![IMAGE ALT TEXT](http://img.youtube.com/vi/BQTW6YVh2z4/0.jpg)](http://www.youtube.com/watch?v=BQTW6YVh2z4 "Video Title")
+[![IMAGE ALT TEXT](http://img.youtube.com/vi/f9ZjgWBAxEQ/0.jpg)](http://www.youtube.com/watch?v=f9ZjgWBAxEQ "Video Title")
 
 ## Usage
 
