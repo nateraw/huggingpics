@@ -16,7 +16,7 @@ from transformers import ViTFeatureExtractor
 
 logger = logging.getLogger(__name__)
 
-SEARCH_URL = "https://huggingface.co/api/experimental/images/search"
+SEARCH_URL = "https://huggingpics-api-server.fly.dev/images/search"
 
 
 def get_image_urls_by_term(search_term: str, count=150):
